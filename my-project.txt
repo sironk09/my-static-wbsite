@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexPulse | Fitness & Wellness Blog</title>
+    <style>
+        /* --- Reset & Base Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f7f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: #111;
+            color: #fff;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        header .logo span {
+            color: #ff4757;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a:hover {
+            color: #ff4757;
+            transition: 0.3s;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+        }
+
+        /* --- Main Layout --- */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2%;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        /* --- Blog Posts Area --- */
+        .blog-posts {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .post-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .post-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .post-content {
+            padding: 1.5rem;
+        }
+
+        .category {
+            display: inline-block;
+            background: #ff4757;
+            color: #fff;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .post-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-title a:hover {
+            color: #ff4757;
+        }
+
+        .post-meta {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 1rem;
+        }
+
+        .post-excerpt {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: #ff4757;
+            font-weight: bold;
+        }
+
+        /* --- Sidebar --- */
+        sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .widget {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .widget h3 {
+            border-bottom: 2px solid #ff4757;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .about-widget img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        .about-widget {
+            text-align: center;
+        }
+
+        .newsletter-form input[type="email"] {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .newsletter-form button {
+            width: 100%;
+            padding: 0.75rem;
+            background: #111;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: #ff4757;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #111;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav ul li {
+                margin: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Flex<span>Pulse</span></div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Workouts</a></li>
+                <li><a href="#">Nutrition</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Fuel Your Fitness</h1>
+        <p>Expert training tips, nutritional advice, and motivation to help you crush your health goals.</p>
+    </section>
+
+    <div class="container">
+        
+        <main class="blog-posts">
+            
+            <article class="post-card">
+                <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=800" alt="HIIT Workout" class="post-img">
+                <div class="post-content">
+                    <span class="category">Workouts</span>
+                    <h2 class="post-title"><a href="#">The Ultimate 20-Minute HIIT Routine for Fat Loss</a></h2>
+                    <div class="post-meta">Posted on June 2, 2026 by Coach Alex</div>
+                    <p class="post-excerpt">Short on time? No problem. This high-intensity interval training (HIIT) workout requires zero equipment and maximizes calorie burn in just twenty minutes...</p>
+                    <a href="#" class="read-more">Read Full Post &rarr;</a>
+                </div>
+            </article>
+
+            <article class="post-card">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=800" alt="Healthy Meal Prep" class="post-img">
+                <div class="post-content">
+                    <span class="category">Nutrition</span>
+                    <h2 class="post-title"><a href="#">5 Beginner-Friendly Meal Prep Recipes for the Week</a></h2>
+                    <div class="post-meta">Posted on May 28, 2026 by Sarah Jenkins</div>
+                    <p class="post-excerpt">Eating clean doesn't have to be complicated or expensive. Discover five simple, high-protein meal prep strategies that will save you time and keep you on track...</p>
+                    <a href="#" class="read-more">Read Full Post &rarr;</a>
+                </div>
+            </article>
+
+        </main>
+
+        <aside class="sidebar">
+            
+            <div class="widget about-widget">
+                <h3>About Me</h3>
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400" alt="Blogger Portrait">
+                <p>Welcome to FlexPulse! I'm a certified personal trainer and nutrition enthusiast dedicated to helping you live your healthiest life.</p>
+            </div>
+
+            <div class="widget">
+                <h3>Newsletter</h3>
+                <p style="margin-bottom: 1rem; font-size: 0.9rem; color: #666;">Subscribe to get weekly workout routines and diet plans sent straight to your inbox.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                    <input type="email" placeholder="Your Email Address" required>
+                    <button type="submit">Join the Club</button>
+                </form>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 FlexPulse Fitness Blog. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
